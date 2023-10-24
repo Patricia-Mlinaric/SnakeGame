@@ -21,6 +21,24 @@
         <p>Score: <span class="score">0</span></p>
         <p>Highscore: <span class="highscore">5</span></p>
       </div>
+      <!-- directional buttons taken from taken from https://codepen.io/NodeReaver/pen/ExxzpEz -->
+      <div class="directional-buttons">
+        <button onclick="buttonDirection('up')" class="direction-button up">
+          <span class="visually-hidden">up</span>
+        </button>
+        <button onclick="buttonDirection('left')" class="direction-button left">
+          <span class="visually-hidden">left</span>
+        </button>
+        <button
+          onclick="buttonDirection('right')"
+          class="direction-button right"
+        >
+          <span class="visually-hidden">right</span>
+        </button>
+        <button onclick="buttonDirection('down')" class="direction-button down">
+          <span class="visually-hidden">down</span>
+        </button>
+      </div>
     </main>
   </body>
 </html>
