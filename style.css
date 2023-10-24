@@ -118,7 +118,7 @@ button:hover {
     position: absolute;
     left: calc(50vw - 7rem);
     bottom: 8px;
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   /* hides the button text */
   .visually-hidden {
@@ -264,7 +264,7 @@ button:hover {
 }
 @media (max-width: 380px) {
   .directional-buttons {
-    bottom: 0;
+    bottom: -12px;
     transform: scale(0.66);
   }
 }/*# sourceMappingURL=style.css.map */
