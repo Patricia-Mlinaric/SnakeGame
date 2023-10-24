@@ -117,7 +117,7 @@ button:hover {
     grid-template-areas: "....  up  ....." "left  ..  right" ".... down .....";
     position: absolute;
     left: calc(50vw - 7rem);
-    bottom: 4rem;
+    bottom: 2rem;
   }
   /* hides the button text */
   .visually-hidden {
@@ -259,5 +259,11 @@ button:hover {
     left: calc(50% - 2rem);
     /* position it just right */
     bottom: -1rem;
+  }
+}
+@media (max-width: 380px) {
+  .directional-buttons {
+    bottom: 0;
+    transform: scale(0.8);
   }
 }/*# sourceMappingURL=style.css.map */
