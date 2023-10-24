@@ -2,9 +2,19 @@
 
 // 1.Postavljanje igre
 // *Grid
-const numberOfRows = 16;
-const numberOfColumns = 16;
-const speedInMs = 160;
+let numberOfRows = 16;
+let numberOfColumns = 16;
+let speedInMs = 160;
+
+const screenWidth = window.innerWidth;
+
+if (screenWidth < 500) {
+  speedInMs = 200;
+  numberOfRows = 12;
+  numberOfColumns = 12;
+  console.log('Bok');
+}
+
 const gridEl = document.querySelector('.grid');
 gridEl.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
 gridEl.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`;
@@ -69,6 +79,43 @@ const foodPosition = function () {
   foodEl.style.background = `url(./icons/${fruitImages[randomNumberFruit]})`;
 };
 
+// F: button mobitel
+const buttonDirection = (direction) => {
+  console.log(direction);
+  if (snakeRefreshed) {
+    switch (true) {
+      case direction === 'up':
+        // Pomakni zmiju prema gore
+        if (zadnjaTipkaPritisnuta !== 'down') {
+          snakeRefreshed = false;
+          zadnjaTipkaPritisnuta = 'up';
+        }
+        break;
+      case direction === 'down': // Pomakni zmiju prema dolje
+        if (zadnjaTipkaPritisnuta !== 'up') {
+          snakeRefreshed = false;
+          zadnjaTipkaPritisnuta = 'down';
+        }
+        break;
+      case direction === 'left': // Pomakni zmiju lijevo
+        if (zadnjaTipkaPritisnuta !== 'right') {
+          snakeRefreshed = false;
+          zadnjaTipkaPritisnuta = 'left';
+        }
+        break;
+      case direction === 'right': // Pomakni zmiju desno
+        if (zadnjaTipkaPritisnuta !== 'left') {
+          snakeRefreshed = false;
+          zadnjaTipkaPritisnuta = 'right';
+        }
+        break;
+
+      default: // Ne reagiraj na druge tipke
+        break;
+    }
+  }
+};
+
 // F: checkiranje tipke korisnika
 function tipkaKorisnika(event) {
   console.log(
@@ -108,6 +155,9 @@ function tipkaKorisnika(event) {
           snakeRefreshed = false;
           zadnjaTipkaPritisnuta = 'right';
         }
+        break;
+      case event.key === 'Enter' || event.code === 'Space':
+        init(); // Pokreni game ponovno
         break;
       default: // Ne reagiraj na druge tipke
         break;
